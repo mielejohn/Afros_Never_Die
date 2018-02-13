@@ -23,26 +23,36 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	public Stealth_States stealth_State;
 
+	public GameObject Enemy;
+	public GameObject[] Enemies;
 	void Start () {
 		RB = this.GetComponent<Rigidbody2D> ();
 	}
 
 	void FixedUpdate(){
 		float moveX = Input.GetAxis("Horizontal");
-		float moveY = Input.GetAxis ("Vertical");
+		if (Input.GetKeyDown(KeyCode.A)) {
+			player_sprite.flipX= true;
+		}
 
+		if (Input.GetKeyDown(KeyCode.D)) {
+			player_sprite.flipX= false;
+		}
+		float moveY = Input.GetAxis ("Vertical");
 		Vector2 movement = new Vector2 (moveX, moveY);
 		RB.velocity = movement * speed;
 
-		if (Input.GetButton ("L_Control")) {
+		if (Input.GetButton ("L_Shift")) {
 			player_state = Player_States.Crouching;
-			transform.localScale = new Vector3 (5.836665f,6,1);
+			transform.localScale = new Vector3 (0.8164563f,0.6164563f,0.8164563f);
 			speed = 4;
-		} else if (Input.GetButtonUp ("L_Control")) {
+		} else if (Input.GetButtonUp ("L_Shift")) {
 			player_state = Player_States.Walking;
-			transform.localScale = new Vector3 (5.836665f,8.338114f,1);
+			transform.localScale = new Vector3 (0.8164563f,0.8164563f,0.8164563f);
 			speed = 7;
 		}
+
+		//float distance = transform.position - Enemy.transform.position;
 	}
 
 

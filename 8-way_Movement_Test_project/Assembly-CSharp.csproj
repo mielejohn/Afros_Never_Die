@@ -51,15 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Advanced_Enemy.cs" />
      <Compile Include="Assets\Scripts\Basic_Enemy.cs" />
      <Compile Include="Assets\Scripts\Camera_Script.cs" />
      <Compile Include="Assets\Scripts\Gaurd_FOV.cs" />
      <Compile Include="Assets\Scripts\Player_States.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Room_Controller.cs" />
      <Compile Include="Assets\Scripts\Room_Entry.cs" />
+     <Compile Include="Assets\Scripts\Unlockable_Door.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>F:/Classes/Group Game Project II/8-way_Movement_Test_project/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>F:/Classes/Group Game Project II/Afros Never Die/Repository/branches/John's-Branch/8-way_Movement_Test_project/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

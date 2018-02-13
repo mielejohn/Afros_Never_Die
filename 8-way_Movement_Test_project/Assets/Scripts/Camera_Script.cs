@@ -40,15 +40,15 @@ public class Camera_Script : MonoBehaviour {
 
 		if (detectingPlayer == false && detectedplayer == false) {
 		if (ReverseRotation == false && cameraBody.transform.eulerAngles.z <= 63.0f) {
-				Debug.Log ("Less than 63");
+				//Debug.Log ("Less than 63");
 				cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, 0.4f);
 			} else {
 				ReverseRotation = true;
-				Debug.Log ("Else statement, greater than 63");
+				//Debug.Log ("Else statement, greater than 63");
 
 				cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, -0.4f);
 			if (cameraBody.transform.eulerAngles.z <= 0.5f) {
-					Debug.Log ("Less than 0.5");
+					//Debug.Log ("Less than 0.5");
 					ReverseRotation = false;
 				}
 			}
@@ -57,10 +57,10 @@ public class Camera_Script : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player" && Player.player_state == Player_States.Walking) {
-			Debug.Log ("Colliding with a walking player");
+			//Debug.Log ("Colliding with a walking player");
 			DetectedPlayer ();
 		} if (other.tag == "Player" && Player.player_state == Player_States.Crouching) {
-			Debug.Log ("Colliding with a crouching player");
+			//Debug.Log ("Colliding with a crouching player");
 			detectingPlayer = true;
 			StartCoroutine (Detecting ());
 		}
