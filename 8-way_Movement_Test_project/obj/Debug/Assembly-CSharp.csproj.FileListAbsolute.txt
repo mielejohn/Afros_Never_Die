@@ -1,0 +1,150 @@
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Assembly-CSharp.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Assembly-CSharp.pdb
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Facebook.Unity.Settings.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\nunit.framework.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Advertisements.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Analytics.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.GoogleAudioSpatializer.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Graphs.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.HoloLens.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Networking.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.OSXStandalone.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Purchasing.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.SpatialTracking.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TestRunner.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Timeline.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TreeEditor.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UI.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UIAutomation.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.VR.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.WindowsStandalone.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Advertisements.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Analytics.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.HoloLens.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Networking.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Purchasing.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.SpatialTracking.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.StandardEvents.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.TestRunner.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Timeline.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UI.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UIAutomation.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.SerializationLogic.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.DataContract.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\ExCSS.Unity.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.UNetWeaver.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.Mdb.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.CecilTools.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.Pdb.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UI.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UI.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Networking.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Networking.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TestRunner.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.TestRunner.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\nunit.framework.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Timeline.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Timeline.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TreeEditor.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UIAutomation.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UIAutomation.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.GoogleAudioSpatializer.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.HoloLens.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.HoloLens.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.SpatialTracking.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.VR.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.pdb
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Facebook.Extensions.dll
+F:\Classes\Group Game Project II\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Assembly-CSharp.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Assembly-CSharp.pdb
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Facebook.Unity.Settings.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\nunit.framework.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Advertisements.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Analytics.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Facebook.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.GoogleAudioSpatializer.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Graphs.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.HoloLens.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.LinuxStandalone.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Networking.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.OSXStandalone.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Purchasing.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.SpatialTracking.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TestRunner.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Timeline.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TreeEditor.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UI.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UIAutomation.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.VR.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.WindowsStandalone.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Advertisements.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Analytics.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.HoloLens.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Networking.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Purchasing.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.SpatialTracking.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.StandardEvents.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.TestRunner.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Timeline.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UI.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UIAutomation.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.SerializationLogic.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.DataContract.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\ExCSS.Unity.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.UNetWeaver.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.Mdb.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.CecilTools.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\Unity.Cecil.Pdb.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UI.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UI.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Networking.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Networking.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TestRunner.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.TestRunner.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\nunit.framework.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.Timeline.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Timeline.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.TreeEditor.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.UIAutomation.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.UIAutomation.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.GoogleAudioSpatializer.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.HoloLens.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.HoloLens.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.SpatialTracking.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.VR.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.pdb
