@@ -183,7 +183,7 @@ public class Basic_Enemy : MonoBehaviour {
 
 		Vector3 vectorToTarget = selectedPatrolPointGO.transform.position - transform.position;
 		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, Vector3.forward);
+		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
 		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 20);
 	}
 
@@ -192,8 +192,8 @@ public class Basic_Enemy : MonoBehaviour {
 		transform.position = Vector2.MoveTowards (transform.position, PlayerofInterest.transform.position, AttackingSpeed);
 
 		Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
-		float angle = Mathf.Atan2 (vectorToTarget.x, vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, Vector3.forward);
+		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
+		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
 		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 2);
 	}
 
@@ -203,7 +203,11 @@ public class Basic_Enemy : MonoBehaviour {
 
 		Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
 		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, Vector3.forward);
+		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
 		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 2);
+	}
+
+	public void Dead(){
+		Destroy (this.gameObject);
 	}
 }

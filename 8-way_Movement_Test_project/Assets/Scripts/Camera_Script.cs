@@ -5,53 +5,96 @@ using UnityEngine.UI;
 
 public class Camera_Script : MonoBehaviour {
 
+	[Header("Camera Objects")]
 	public GameObject cameraBody;
 	public GameObject cameraTopObject;
-	private PlayerMovement Player;
 	public SpriteRenderer cameraFOV;
+
+	[Header("Player")]
+	private PlayerMovement Player;
+
+	[Header("Detection Items")]
 	public float playerDetectedPercent = 0;
 	public bool detectingPlayer;
 	public bool detectedplayer;
 	public Image questionMark;
 	public GameObject exclamationPoint;
 
+	[Header("Rotation Numbers")]
+	public string Operator1;
+	public float rotation1;
+	public string Operator2;
+	public float rotation2;
 
 	[Header("Rotation")]
 	public bool ReverseRotation = false;
-	//private float rotatespeed = 0.5f;
+
+	[Header("Room Controllers")]
+	public Room_Controller RC;
 	void Start () {
 		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMovement> ();
-		//gameObject.transform.forward = new Vector3 (0, 0, 1);
-		//cameraBody.transform.forward = new Vector3 (0, 0, 1);
+
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		QuestionMark ();
-		/*Vector3 targetDir = Player.gameObject.transform.position - cameraBody.transform.position;
-		float step = Time.deltaTime * rotatespeed;
-		Vector3 newDir = Vector3.RotateTowards (cameraBody.transform.forward, targetDir, step, 0.0f);
-		if (detectedplayer == true) {
-			Debug.Log ("Found player...ROTATING");
-
-			cameraBody.transform.rotation = Quaternion.LookRotation (new Vector3(newDir.x, 0.0f, newDir.z));
-			//cameraTopObject.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
-		}*/
-
+		Quaternion Rotation1_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation1));
+		Quaternion Rotation2_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation2));
+		Quaternion rotation = transform.rotation;
 		if (detectingPlayer == false && detectedplayer == false) {
-		if (ReverseRotation == false && cameraBody.transform.eulerAngles.z <= 63.0f) {
-				//Debug.Log ("Less than 63");
-				cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, 0.4f);
-			} else {
-				ReverseRotation = true;
-				//Debug.Log ("Else statement, greater than 63");
 
-				cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, -0.4f);
-			if (cameraBody.transform.eulerAngles.z <= 0.5f) {
-					//Debug.Log ("Less than 0.5");
-					ReverseRotation = false;
+			switch (Operator1) {
+			case ">":
+				if (ReverseRotation == false && rotation.z >= Rotation1_Q.z) {
+					cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, 0.2f);
+					//Debug.Log ("Positive Rotation 1");
+				} else if(ReverseRotation != true) {
+					//Debug.Log ("Making reverse rotation true #1");
+					ReverseRotation = true;
 				}
+
+				if(ReverseRotation == true) {
+					//ReverseRotation = true;
+					cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, -0.2f);
+					//Debug.Log ("Negative Rotation 1");
+				}
+				break;
+
+			case "<":
+				if (ReverseRotation == false && rotation.z <= Rotation1_Q.z) {
+					cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, 0.2f);
+					//Debug.Log ("Positive Rotation 2");
+				} else  if(ReverseRotation != true) {
+					//Debug.Log ("Making reverse rotation true #2");
+					ReverseRotation = true;
+				}
+
+				if(ReverseRotation == true) {
+					//ReverseRotation = true;
+					cameraBody.transform.localRotation *= Quaternion.Euler (0, 0, -0.2f);
+					//Debug.Log ("Negative Rotation 1");
+				}
+				break;
 			}
+
+			switch (Operator2) {
+			case ">":
+				//Debug.Log ("In greater than, Operator 2 A");
+				if (rotation.z >=  Rotation2_Q.z && ReverseRotation == true) {
+					ReverseRotation = false;
+					//Debug.Log ("Reverse Rotation = false 3");
+				} 
+				break;
+
+			case "<":				
+				//Debug.Log ("In less than, Operator 2 B");
+				if (rotation.z <=  Rotation2_Q.z && ReverseRotation == true) {
+					ReverseRotation = false;
+					//Debug.Log ("Reverse Rotation = false 4");
+				}
+				break;
+			}
+
 		}
 	}
 
@@ -78,13 +121,12 @@ public class Camera_Script : MonoBehaviour {
 			if (playerDetectedPercent < 99) {
 				playerDetectedPercent += 2;
 				yield return new WaitForSeconds (0.1f);
-				//StartCoroutine (Detecting ());
 			} else {
 				DetectedPlayer();
 				playerDetectedPercent = 0;
 				detectingPlayer = false;
 			}
-
+			
 			if (detectingPlayer == true && Player.player_state == Player_States.Walking) {
 				DetectedPlayer();
 				playerDetectedPercent = 0;
@@ -97,15 +139,14 @@ public class Camera_Script : MonoBehaviour {
 		exclamationPoint.SetActive (false);
 		detectedplayer = false;
 		playerDetectedPercent = 0;
-		//Camera_FOV.color = Color.white;
 		cameraFOV.color = new Color (1, 1, 1, 0.35f);
 	}
 
 	private void DetectedPlayer(){
+		RC.RoomAlert ();
 		detectedplayer = true;
 		exclamationPoint.SetActive (true);
 		Player.stealth_State = Stealth_States.Detected;
-		//Camera_FOV.color = Color.red;
 		cameraFOV.color = new Color (1, 0, 0, 0.35f);
 
 	}
