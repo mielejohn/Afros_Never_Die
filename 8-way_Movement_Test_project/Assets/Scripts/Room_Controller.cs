@@ -20,7 +20,7 @@ public class Room_Controller : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log ("Something just Collided");
+		//Debug.Log ("Something just Collided");
 		if (other.tag == "Player") {
 			Player = other.gameObject;
 			PM = Player.GetComponent<PlayerMovement> ();
@@ -31,25 +31,26 @@ public class Room_Controller : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Player") {
 			PM.RemoveEnemies ();
-			ResetRoom ();
-
+			StartCoroutine(ResetRoom ());
 		}
 	}
 
 	public void RoomAlert(){
-		for (int i = 0; i < Enemies.Count; i++) {
+		for (int i = 0; i < Enemies.Count; i--) {
 			//Enemies [i].GetComponent<Basic_Enemy> ().PlayerofInterest = Player;
 			Enemies [i].GetComponent<Basic_Enemy> ().DetectedPlayer ();
 		}
 	}
 
-	public void ResetRoom(){
+	public IEnumerator ResetRoom(){
 		Debug.Log ("Called reset room");
-		for (int i = 0; i < Enemies.Count; i++) {
-			Debug.Log ("Calling enemy " + Enemies[i].gameObject.name);
+		//PM.RemoveEnemies ();
+		for (int i = 0; i > Enemies.Count; i++) {
+			//Debug.Log ("Calling enemy " + Enemies[i].gameObject.name);
 			Debug.Log ("Called reset room enemy [" + i + "]");
 			//Enemies [i].GetComponent<Basic_Enemy> ().PlayerofInterest = Player;
 			StartCoroutine(Enemies [i].GetComponent<Basic_Enemy> ().ResetGaurd(1.0f));
 		}
+		yield return new WaitForSeconds (0.5f);
 	}
 }

@@ -21227,7 +21227,7 @@ GameObject:
   - component: {fileID: 288862167}
   - component: {fileID: 288862166}
   m_Layer: 0
-  m_Name: Enemy_Gaurd
+  m_Name: Enemy_Gaurd (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23256,7 +23256,7 @@ GameObject:
   - component: {fileID: 774997772}
   - component: {fileID: 774997771}
   m_Layer: 0
-  m_Name: Enemy_Gaurd
+  m_Name: Enemy_Gaurd (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23828,7 +23828,7 @@ GameObject:
   - component: {fileID: 863414862}
   - component: {fileID: 863414861}
   m_Layer: 0
-  m_Name: Enemy_Gaurd
+  m_Name: Enemy_Gaurd (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25872,7 +25872,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5.44
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -25894,8 +25894,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259088065}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -0.0000009541602, z: 0, w: 1}
+  m_LocalPosition: {x: -61.77, y: 4.81, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27317,7 +27317,7 @@ GameObject:
   - component: {fileID: 1575620758}
   - component: {fileID: 1575620757}
   m_Layer: 0
-  m_Name: Enemy_Gaurd
+  m_Name: Enemy_Gaurd (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27447,7 +27447,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0.8896551, a: 1}
+  m_Color: {r: 0.36551714, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28925,6 +28925,7 @@ MonoBehaviour:
   player_sprite: {fileID: 1824733829}
   player_state: 0
   stealth_State: 0
+  ClosestEnemy_distance: 0
   ClosestEnemy: {fileID: 0}
   Enemy_Distances_List: []
   Enemies_Player_List: []
@@ -29480,6 +29481,7 @@ GameObject:
   - component: {fileID: 1869861378}
   - component: {fileID: 1869861381}
   - component: {fileID: 1869861380}
+  - component: {fileID: 1869861379}
   m_Layer: 0
   m_Name: MiniMap Camera
   m_TagString: Untagged
@@ -29500,6 +29502,18 @@ Transform:
   m_Father: {fileID: 1824733830}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869861379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869861377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: e6385b0a96610d5498406ee78ec325cf, type: 2}
 --- !u!124 &1869861380
 Behaviour:
   m_ObjectHideFlags: 0
@@ -29515,8 +29529,8 @@ Camera:
   m_GameObject: {fileID: 1869861377}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -29943,7 +29957,7 @@ GameObject:
   - component: {fileID: 1956059402}
   - component: {fileID: 1956059401}
   m_Layer: 0
-  m_Name: Enemy_Gaurd
+  m_Name: Enemy_Gaurd (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

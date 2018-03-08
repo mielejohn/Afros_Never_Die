@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum Enemy_States{ Patrolling, Investigating, Attacking};
+public enum Enemy_Type{ Basic, Commander};
 
 
 public class Basic_Enemy : MonoBehaviour {
@@ -72,17 +73,6 @@ public class Basic_Enemy : MonoBehaviour {
 		}
 	}
 
-	/*void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player" && Player.player_state == Player_States.Walking) {
-			Debug.Log ("Colliding with a walking player");
-			DetectedPlayer ();
-		} if (other.tag == "Player" && Player.player_state == Player_States.Crouching) {
-			Debug.Log ("Colliding with a crouching player");
-			detectingPlayer = true;
-			StartCoroutine (Detecting ());
-		}
-	}*/
-
 	public IEnumerator Detecting(){
 		while (detectingPlayer == true) {
 			if (playerDetectedPercent < 99) {
@@ -111,7 +101,7 @@ public class Basic_Enemy : MonoBehaviour {
 		//Camera_FOV.color = Color.white;
 		ES = Enemy_States.Patrolling;
 		FOV_Sprite.color = new Color (1, 1, 1, 0.35f);
-		Debug.Log ("Just reset Gaurd");
+		//Debug.Log ("Just reset Gaurd");
 	}
 
 	public void DetectedPlayer(){
@@ -143,8 +133,8 @@ public class Basic_Enemy : MonoBehaviour {
 	}
 
 	public void SearchForPlayer(Vector3 LastKnownLocation){
-		Debug.Log("Im going to go search for Afr0");
-		Debug.Log ("Last known location was" + LastKnownLocation);
+		//Debug.Log("Im going to go search for Afr0");
+		//Debug.Log ("Last known location was" + LastKnownLocation);
 		investigationPoint = LastKnownLocation;
 		Investigating ();
 		//yield return new WaitForSeconds (4.0f);
@@ -208,6 +198,6 @@ public class Basic_Enemy : MonoBehaviour {
 	}
 
 	public void Dead(){
-		Destroy (this.gameObject);
+		gameObject.SetActive (false);
 	}
 }

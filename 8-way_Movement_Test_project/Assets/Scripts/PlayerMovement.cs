@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum Stealth_States {Hidden, Detected};
+public enum Disguised_States {UnDisguised, Disguised};
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -23,20 +24,21 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField]
 	public Stealth_States stealth_State;
 	[Header("Enemies")]
+	public float ClosestEnemy_distance;
 	public GameObject ClosestEnemy;
 	//public GameObject[] Enemies_Player;
 	public List<float> Enemy_Distances_List = new List<float> ();
 	public List<GameObject> Enemies_Player_List = new List<GameObject> ();
-	public List<string> Test_List = new List<string> ();
+	//public List<string> Test_List = new List<string> ();
 	//public float[] Enemy_Distances;
 
 	void Awake(){
-		Test_List.Add ("Awake Add");
+		//Test_List.Add ("Awake Add");
 	}
 
 	void Start () {
 		RB = this.GetComponent<Rigidbody2D> ();
-		Test_List.Add ("Start Add");
+		//Test_List.Add ("Start Add");
 	}
 
 	void FixedUpdate(){
@@ -62,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 			speed = 5;
 		}
 
-		if (Input.GetKeyDown (KeyCode.E) && ClosestEnemy != null) {
+		if (Input.GetKeyDown (KeyCode.E) && ClosestEnemy != null && ClosestEnemy_distance < 4) {
 			ClosestEnemy.GetComponent<Basic_Enemy> ().Dead();
 			ClosestEnemy = null;
 		}
@@ -84,31 +86,39 @@ public class PlayerMovement : MonoBehaviour {
 	public void getEnemies(List<GameObject> Enemies){
 		//Enemies_Player = new GameObject[Enemies.Length];
 		//Enemy_Distances = new float[Enemies.Length];
-
+		//List<GameObject> Enemies_Player_List = new List<GameObject> ();
 		for (int i = 0; i < Enemies.Count; i++) {
 			Enemies_Player_List.Add (Enemies [i].gameObject);
 		}
-		Debug.Log ("Grabbing Enemies");
+		//Debug.Log ("Grabbing Enemies");
 		StartCoroutine (CheckEnemyDistance ());
 	}
 
 	public void RemoveEnemies(){
-		for (int i = 0; i < Enemies_Player_List.Count; i++) {
+		/*for (int i = Enemies_Player_List.Count; i > 0; i--) {
 			//Enemies_Player [i] = null;
 			Enemies_Player_List.RemoveAt(i);
-		}
+		}*/
+		Enemies_Player_List.Clear();
 		Debug.Log ("Removing Enemies");
 	}
 
 	private IEnumerator CheckEnemyDistance(){
 		if (Enemies_Player_List.Count == 1) {
 			ClosestEnemy = Enemies_Player_List [0];
+			for (int i = 0; i < Enemies_Player_List.Count; i++) {
+				if (Enemies_Player_List [i].activeSelf == true) {
+					ClosestEnemy = Enemies_Player_List [i];
+				}
+			}
 		} else {
 			for (int i = 0; i < Enemies_Player_List.Count; i++) {
 				float distance = Vector2.Distance (transform.position, Enemies_Player_List [i].gameObject.transform.position);
 				Enemy_Distances_List.Add (distance);
 			}
-			ClosestEnemy = Enemies_Player_List [SmallestDistance ()];
+			if (Enemies_Player_List.Count != 0) {
+				ClosestEnemy = Enemies_Player_List [SmallestDistance ()];
+			}
 		}
 		yield return new WaitForSeconds (0.1f);
 
@@ -119,7 +129,7 @@ public class PlayerMovement : MonoBehaviour {
 		int indexOfClosestEnemy = 0;
 
 		for (int i = 0; i < Enemy_Distances_List.Count-1; i++) {
-			if (Enemy_Distances_List [i] < Enemy_Distances_List [i + 1]) {
+			if (Enemy_Distances_List [i] > Enemy_Distances_List [i + 1]) {
 				indexOfClosestEnemy = i;
 			}
 		}
@@ -127,7 +137,10 @@ public class PlayerMovement : MonoBehaviour {
 		for (int i = 0; i < Enemy_Distances_List.Count; i++) {
 			Enemy_Distances_List.RemoveAt (i);
 		}
-		Debug.Log ("Index of closest enemy is" + indexOfClosestEnemy);
+		Debug.Log ("Index of closest enemy is " + indexOfClosestEnemy);
+		if (Enemies_Player_List.Count != 0) {
+			ClosestEnemy_distance = Vector2.Distance (transform.position, Enemies_Player_List [indexOfClosestEnemy].gameObject.transform.position);
+		}
 		return indexOfClosestEnemy;
 	}
 }
