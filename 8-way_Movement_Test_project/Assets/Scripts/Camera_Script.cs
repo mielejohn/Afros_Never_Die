@@ -11,7 +11,7 @@ public class Camera_Script : MonoBehaviour {
 	public SpriteRenderer cameraFOV;
 
 	[Header("Player")]
-	private PlayerMovement Player;
+	private PlayerController Player;
 
 	[Header("Detection Items")]
 	public float playerDetectedPercent = 0;
@@ -32,7 +32,7 @@ public class Camera_Script : MonoBehaviour {
 	[Header("Room Controllers")]
 	public Room_Controller RC;
 	void Start () {
-		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMovement> ();
+		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 
 	}
 
@@ -41,7 +41,7 @@ public class Camera_Script : MonoBehaviour {
 		Quaternion Rotation1_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation1));
 		Quaternion Rotation2_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation2));
 		Quaternion rotation = transform.rotation;
-		if (detectingPlayer == false && detectedplayer == false) {
+		if (detectingPlayer == false && detectedplayer == false && Time.timeScale != 0.0f) {
 
 			switch (Operator1) {
 			case ">":

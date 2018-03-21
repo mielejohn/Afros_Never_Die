@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gaurd_FOV : MonoBehaviour {
 
 	public Basic_Enemy BE;
+	public Room_Controller RC;
 	void Start () {
 		
 	}
@@ -49,13 +50,13 @@ public class Gaurd_FOV : MonoBehaviour {
 		if (other.tag == "Player") {
 			if (BE.playerDetectedPercent > 50) {
 				BE.detectingPlayer = false;
-				BE.ES = Enemy_States.Investigating;
+				BE.CurrentState = Enemy_States.Investigating;
 				BE.SearchForPlayer (other.transform.position); 
-			} else if(BE.ES == Enemy_States.Attacking) {
+			} else if(BE.CurrentState == Enemy_States.Attacking && RC.RS != Room_State.Alerted) {
 				BE.detectingPlayer = false;
 				StartCoroutine(BE.ResetGaurd (4.0f));
 			}
-			if (BE.ES == Enemy_States.Attacking) {
+			if (BE.CurrentState == Enemy_States.Attacking) {
 				BE.SearchForPlayer (other.transform.position);
 			}
 		}

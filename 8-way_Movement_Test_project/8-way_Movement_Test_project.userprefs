@@ -2,16 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Basic_Enemy.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="41" Column="5" />
-      <File FileName="Assets\Scripts\Player_States.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Room_Entry.cs" Line="6" Column="42" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player_Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Lethal_Pistol.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Room_Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Camera_Script.cs" Line="146" Column="19" />
-      <File FileName="Assets\Scripts\Basic_Enemy.cs" Line="7" Column="41" />
+      <File FileName="Assets\Scripts\Camera_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Basic_Enemy.cs" Line="227" Column="43" />
       <File FileName="Assets\Scripts\Gaurd_FOV.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Unlockable_Door.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\StartMenuContoller.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Headquarters_Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public enum Enemy_States{ Patrolling, Investigating, Attacking};
 public enum Enemy_Type{ Basic, Commander};
+public enum Patrol_Type{ Stationary, Moveable};
 
 
 public class Basic_Enemy : MonoBehaviour {
 
+	[Header("GameManager")]
+	public GameManager gameManager;
+
+	[Header("GameManager")]
+	public GameObject TopObject;
+
 	[Header("FOV")]
 	public GameObject FOV;
 	public SpriteRenderer FOV_Sprite;
+
 	[Space]
 	[Header("Patrol points")]
 	public GameObject patrolPoint1;
@@ -19,35 +27,54 @@ public class Basic_Enemy : MonoBehaviour {
 	public GameObject selectedPatrolPointGO;
 	public Vector3 selectedPatrolPoint;
 	public Vector3 investigationPoint;
-	[Space]
+
 	[Header("States")]
-	public Enemy_States ES;
-	[Space]
+	public Enemy_States CurrentState;
+	public Enemy_States EnemyState;
+	public Enemy_Type EnemyType;
+	public Patrol_Type PatrolType;
+
+	[Header("Rotation Numbers")]
+	public string Operator1;
+	public float rotation1;
+	public string Operator2;
+	public float rotation2;
+
+	[Header("Rotation")]
+	public bool ReverseRotation = false;
+
 	[Header ("Patrolling")]
 	private float WalkingSpeed= 0.01f;
-	[Space]
+
 	[Header ("Investigating")]
 	private float SearchingSpeed = 0.02f;
-	[Space]
+
 	[Header ("Attacking")]
 	public GameObject PlayerofInterest;
 	private float AttackingSpeed = 0.02f;
 
-	[Space]
 	[Header("Detection")]
 	public bool detectingPlayer;
 	public bool detectedplayer;
 	public float playerDetectedPercent = 0;
 	public Image questionMark;
 	public GameObject exclamationPoint;
-	public PlayerMovement Player;
+	public PlayerController Player;
 
-	[Space]
-	[Header("Room Alert")]
+	[Header("Room Controller")]
 	public Room_Controller RC;
+
+	[Header("UI")]
+	public GameObject Keyboard_Key;
+	public GameObject Controller_Key;
+
+	void Awake(){
+		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+	}
+
 	// Use this for initialization
 	void Start () {
-		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerMovement> ();
+		Player = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController> ();
 		PlayerofInterest = GameObject.FindGameObjectWithTag ("Player");
 		selectedPatrolPointGO = patrolPoint1;
 		selectedPatrolPoint = patrolPoint1.transform.position;
@@ -59,10 +86,13 @@ public class Basic_Enemy : MonoBehaviour {
 		//if (detectingPlayer == false && detectedplayer == false && ES == Enemy_States.Patrolling) {
 
 		//}
-
-		switch (ES) {
+		switch (CurrentState) {
 		case Enemy_States.Patrolling:
-			Patrolling ();
+			if (PatrolType == Patrol_Type.Moveable) {
+				Patrolling ();
+			} else if (PatrolType == Patrol_Type.Stationary && CurrentState != Enemy_States.Investigating ||CurrentState != Enemy_States.Attacking){
+				StationaryLook ();
+			}
 			break;
 		case Enemy_States.Investigating:
 			Investigating ();
@@ -98,9 +128,12 @@ public class Basic_Enemy : MonoBehaviour {
 		exclamationPoint.SetActive (false);
 		detectedplayer = false;
 		playerDetectedPercent = 0;
-		//Camera_FOV.color = Color.white;
-		ES = Enemy_States.Patrolling;
 		FOV_Sprite.color = new Color (1, 1, 1, 0.35f);
+		if (PatrolType == Patrol_Type.Moveable) {
+			CurrentState = Enemy_States.Patrolling;
+		} else if (PatrolType == Patrol_Type.Stationary) {
+			ReturnToPosition ();
+		}
 		//Debug.Log ("Just reset Gaurd");
 	}
 
@@ -108,21 +141,12 @@ public class Basic_Enemy : MonoBehaviour {
 		detectedplayer = true;
 		exclamationPoint.SetActive (true);
 		Player.stealth_State = Stealth_States.Detected;
-		ES = Enemy_States.Attacking;
+		CurrentState = Enemy_States.Attacking;
 		//Camera_FOV.color = Color.red;
 		FOV_Sprite.color = new Color (1, 0, 0, 0.35f);
 
 	}
 
-	private void SelectNewPatrolPoint(){
-		if(selectedPatrolPointGO == patrolPoint1){
-			selectedPatrolPoint = patrolPoint2.transform.position;
-			selectedPatrolPointGO = patrolPoint2;
-		} else if(selectedPatrolPointGO == patrolPoint2){
-			selectedPatrolPoint = patrolPoint1.transform.position;
-			selectedPatrolPointGO = patrolPoint1;
-		}
-	}
 
 	public void QuestionMark(){
 		questionMark.fillAmount = QuestionMarkMap (playerDetectedPercent, 0, 100, 0, 1);
@@ -140,6 +164,22 @@ public class Basic_Enemy : MonoBehaviour {
 		//yield return new WaitForSeconds (4.0f);
 		//detectingPlayer = false;
 		//ResetGaurd ();
+	}
+
+	public void DisplayKey(){
+		if (!gameManager.prevState.IsConnected) {
+			Keyboard_Key.SetActive (true);
+		} else if(gameManager.prevState.IsConnected){
+			Controller_Key.SetActive (true);
+		}
+	}
+
+	public void RemoveKey(){
+		if (!gameManager.prevState.IsConnected) {
+			Keyboard_Key.SetActive (false);
+		} else if(gameManager.prevState.IsConnected){
+			Controller_Key.SetActive (false);
+		}
 	}
 
 
@@ -165,39 +205,120 @@ public class Basic_Enemy : MonoBehaviour {
 
 
 	protected virtual void Patrolling(){
-		transform.position = Vector2.MoveTowards (transform.position, selectedPatrolPoint, WalkingSpeed);
-		float distance = Vector2.Distance (transform.position, selectedPatrolPoint);
-		if (distance < 0.2) {
-			SelectNewPatrolPoint ();
-		}
+		if (Time.timeScale != 0.0f) {
+			TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, selectedPatrolPoint, WalkingSpeed);
+			float distance = Vector2.Distance (TopObject.transform.position, selectedPatrolPoint);
+			if (distance < 0.2) {
+				StartCoroutine (SelectNewPatrolPoint ());
+			}
 
-		Vector3 vectorToTarget = selectedPatrolPointGO.transform.position - transform.position;
-		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
-		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 20);
+			Vector3 vectorToTarget = selectedPatrolPointGO.transform.position - transform.position;
+			float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
+			Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
+			FOV.transform.rotation = Quaternion.Slerp (FOV.transform.rotation, q, Time.deltaTime * 20);
+		}
+	}
+
+
+	private IEnumerator SelectNewPatrolPoint(){
+		if(selectedPatrolPointGO == patrolPoint1){
+			yield return new WaitForSeconds (0.7f);
+			selectedPatrolPoint = patrolPoint2.transform.position;
+			selectedPatrolPointGO = patrolPoint2;
+		} else if(selectedPatrolPointGO == patrolPoint2){
+			yield return new WaitForSeconds (0.7f);
+			selectedPatrolPoint = patrolPoint1.transform.position;
+			selectedPatrolPointGO = patrolPoint1;
+		}
 	}
 
 	private void Attacking(){
-		float distance = Vector3.Distance(transform.position, PlayerofInterest.transform.position);
-		transform.position = Vector2.MoveTowards (transform.position, PlayerofInterest.transform.position, AttackingSpeed);
+		if (Time.timeScale != 0.0f) {
+			float distance = Vector3.Distance (TopObject.transform.position, PlayerofInterest.transform.position);
+			TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, PlayerofInterest.transform.position, AttackingSpeed);
 
-		Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
-		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
-		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 2);
+			Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
+			float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
+			Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
+			FOV.transform.rotation = Quaternion.Slerp (FOV.transform.rotation, q, Time.deltaTime * 2);
+		}
 	}
 
 	private void Investigating(){
-		float distance = Vector3.Distance(transform.position, investigationPoint);
-		transform.position = Vector2.MoveTowards (transform.position, investigationPoint, SearchingSpeed);
+		if (Time.timeScale != 0.0f) {
+			float distance = Vector3.Distance (TopObject.transform.position, investigationPoint);
+			TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, investigationPoint, SearchingSpeed);
 
-		Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
-		float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-		Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
-		transform.rotation = Quaternion.Slerp (transform.rotation, q, Time.deltaTime * 2);
+			Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
+			float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
+			Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
+			FOV.transform.rotation = Quaternion.Slerp (FOV.transform.rotation, q, Time.deltaTime * 2);
+		}
+	}
+
+	private void StationaryLook(){
+		Quaternion Rotation1_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation1));
+		Quaternion Rotation2_Q = Quaternion.Euler (new Vector3 (0f, 0f, rotation2));
+		Quaternion rotation = transform.rotation;
+		if (detectingPlayer == false && detectedplayer == false && Time.timeScale != 0.0f) {
+
+			switch (Operator1) {
+			case ">":
+				if (ReverseRotation == false && FOV.transform.rotation.z >= Rotation1_Q.z) {
+					FOV.transform.localRotation *= Quaternion.Euler (0, 0, 0.2f);
+				} else if(ReverseRotation != true) {
+					ReverseRotation = true;
+				}
+
+				if(ReverseRotation == true) {
+					FOV.transform.localRotation *= Quaternion.Euler (0, 0, -0.2f);
+				}
+				break;
+
+			case "<":
+				if (ReverseRotation == false && FOV.transform.rotation.z <= Rotation1_Q.z) {
+					FOV.transform.localRotation *= Quaternion.Euler (0, 0, 0.2f);
+				} else  if(ReverseRotation != true) {
+					ReverseRotation = true;
+				}
+
+				if(ReverseRotation == true) {
+					FOV.transform.localRotation *= Quaternion.Euler (0, 0, -0.2f);
+				}
+				break;
+			}
+
+			switch (Operator2) {
+			case ">":
+				if (FOV.transform.rotation.z >=  Rotation2_Q.z && ReverseRotation == true) {
+					ReverseRotation = false;
+				} 
+				break;
+
+			case "<":				
+				if (FOV.transform.rotation.z <=  Rotation2_Q.z && ReverseRotation == true) {
+					ReverseRotation = false;
+				}
+				break;
+			}
+
+		}
 	}
 
 	public void Dead(){
-		gameObject.SetActive (false);
+		Debug.Log (this.gameObject + " is DEAD");
+		PlayerofInterest.GetComponent<PlayerController> ().ClosestEnemy = null;
+		RC.RemoveEnemy (this.gameObject);
+		Destroy (TopObject);
+		//TopObject.SetActive (false);
+	}
+
+	private void ReturnToPosition(){
+		float distance = Vector2.Distance (TopObject.transform.position, selectedPatrolPoint);
+		while (distance > 1) {
+			TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, selectedPatrolPoint, WalkingSpeed);
+			distance = Vector2.Distance (TopObject.transform.position, selectedPatrolPoint);
+		}
+		CurrentState = Enemy_States.Patrolling;
 	}
 }

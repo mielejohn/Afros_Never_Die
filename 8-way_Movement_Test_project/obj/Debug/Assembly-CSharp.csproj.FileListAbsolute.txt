@@ -146,3 +146,6 @@ F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Bran
 F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.dll
 F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\obj\Debug\Assembly-CSharp.pdb
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\XInputDotNetPure.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.Facebook.Extensions.dll
+F:\Classes\Group Game Project II\Afros Never Die\Repository\branches\John's-Branch\8-way_Movement_Test_project\Temp\bin\Debug\UnityEditor.WebGL.Extensions.dll
