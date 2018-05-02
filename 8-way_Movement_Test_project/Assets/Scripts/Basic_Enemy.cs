@@ -44,14 +44,14 @@ public class Basic_Enemy : MonoBehaviour {
 	public bool ReverseRotation = false;
 
 	[Header ("Patrolling")]
-	private float WalkingSpeed= 0.01f;
+	private float WalkingSpeed= 0.03f;
 
 	[Header ("Investigating")]
 	private float SearchingSpeed = 0.02f;
 
 	[Header ("Attacking")]
 	public GameObject PlayerofInterest;
-	private float AttackingSpeed = 0.02f;
+	private float AttackingSpeed = 0.04f;
 
 	[Header("Detection")]
 	public bool detectingPlayer;
@@ -68,6 +68,13 @@ public class Basic_Enemy : MonoBehaviour {
 	public GameObject Keyboard_Key;
 	public GameObject Controller_Key;
 
+	[Header("Gun")]
+	public GameObject GunTop_Object;
+	public bool canShoot;
+
+	[Header("Flipped")]
+	public bool flip;
+
 	void Awake(){
 		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 	}
@@ -81,7 +88,8 @@ public class Basic_Enemy : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		QuestionMark ();
 		//if (detectingPlayer == false && detectedplayer == false && ES == Enemy_States.Patrolling) {
 
@@ -90,7 +98,7 @@ public class Basic_Enemy : MonoBehaviour {
 		case Enemy_States.Patrolling:
 			if (PatrolType == Patrol_Type.Moveable) {
 				Patrolling ();
-			} else if (PatrolType == Patrol_Type.Stationary && CurrentState != Enemy_States.Investigating ||CurrentState != Enemy_States.Attacking){
+			} else if (PatrolType == Patrol_Type.Stationary && CurrentState != Enemy_States.Investigating || CurrentState != Enemy_States.Attacking) {
 				StationaryLook ();
 			}
 			break;
@@ -100,6 +108,20 @@ public class Basic_Enemy : MonoBehaviour {
 		case Enemy_States.Attacking:
 			Attacking ();
 			break;
+		}
+
+		if (FOV.transform.rotation.z < -0.1f) {
+			flip = true;
+		} else {
+			flip = false;
+		}
+
+		if (flip == true) {
+			this.transform.localScale = new Vector3 (-1f, 1f, 1f);
+			GunTop_Object.transform.localScale = new Vector3 (1f, 1f, 1f);
+		} else {
+			this.transform.localScale = new Vector3 (1f, 1f, 1f);
+			GunTop_Object.transform.localScale = new Vector3 (-1f, -1f, 1f);
 		}
 	}
 
@@ -127,7 +149,9 @@ public class Basic_Enemy : MonoBehaviour {
 		yield return new WaitForSeconds (WaitTime);
 		exclamationPoint.SetActive (false);
 		detectedplayer = false;
+		canShoot = false;
 		playerDetectedPercent = 0;
+		detectingPlayer = false;
 		FOV_Sprite.color = new Color (1, 1, 1, 0.35f);
 		if (PatrolType == Patrol_Type.Moveable) {
 			CurrentState = Enemy_States.Patrolling;
@@ -167,42 +191,12 @@ public class Basic_Enemy : MonoBehaviour {
 	}
 
 	public void DisplayKey(){
-		if (!gameManager.prevState.IsConnected) {
-			Keyboard_Key.SetActive (true);
-		} else if(gameManager.prevState.IsConnected){
-			Controller_Key.SetActive (true);
-		}
+		Keyboard_Key.SetActive (true);
 	}
 
 	public void RemoveKey(){
-		if (!gameManager.prevState.IsConnected) {
-			Keyboard_Key.SetActive (false);
-		} else if(gameManager.prevState.IsConnected){
-			Controller_Key.SetActive (false);
-		}
+		Keyboard_Key.SetActive (false);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	protected virtual void Patrolling(){
 		if (Time.timeScale != 0.0f) {
@@ -232,15 +226,38 @@ public class Basic_Enemy : MonoBehaviour {
 		}
 	}
 
-	private void Attacking(){
+	private void Attacking ()
+	{
+
 		if (Time.timeScale != 0.0f) {
 			float distance = Vector3.Distance (TopObject.transform.position, PlayerofInterest.transform.position);
-			TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, PlayerofInterest.transform.position, AttackingSpeed);
+			if (distance > 5.0f) {
+				TopObject.transform.position = Vector2.MoveTowards (TopObject.transform.position, PlayerofInterest.transform.position, AttackingSpeed);
+			}
 
 			Vector3 vectorToTarget = PlayerofInterest.transform.position - transform.position;
 			float angle = Mathf.Atan2 (-vectorToTarget.x, -vectorToTarget.y) * Mathf.Rad2Deg;
-			Quaternion q = Quaternion.AngleAxis (angle, -Vector3.forward);
-			FOV.transform.rotation = Quaternion.Slerp (FOV.transform.rotation, q, Time.deltaTime * 2);
+			Vector3 q = Quaternion.AngleAxis (angle, -Vector3.forward).eulerAngles;
+			FOV.transform.rotation = Quaternion.Slerp (FOV.transform.rotation, Quaternion.Euler(q), Time.deltaTime * 2);
+
+			Vector3 vectorToTarget_2 = PlayerofInterest.transform.position - GunTop_Object.transform.position;
+			float angle_2 = Mathf.Atan2 (-vectorToTarget_2.x, -vectorToTarget_2.y) * Mathf.Rad2Deg;
+			Vector3 q_2 = Quaternion.AngleAxis (angle_2, -Vector3.forward).eulerAngles;
+			q_2.z += 90;
+			GunTop_Object.transform.rotation = Quaternion.Slerp (GunTop_Object.transform.rotation, Quaternion.Euler(q_2), Time.deltaTime * 2);
+
+			/*var Player = PlayerofInterest.transform.position;
+			var screentoPoint = transform.position;
+			var offset = new Vector2 (Player.x - screentoPoint.x, Player.y - screentoPoint.y);
+			var angle_2 = Mathf.Atan2 (offset.y, offset.x) * Mathf.Rad2Deg;
+			GunTop_Object.transform.rotation = Quaternion.Euler (new Vector3 (0, 0, angle_2));*/
+
+			if (distance < 5.0f && PlayerofInterest.GetComponent<PlayerController>().health_state != HealthyNess.Dead) {
+				canShoot = true;
+				Debug.Log("Can Shoot");
+			} else if(PlayerofInterest.GetComponent<PlayerController>().health_state == HealthyNess.Dead){
+				canShoot = false;
+			}
 		}
 	}
 
@@ -321,4 +338,5 @@ public class Basic_Enemy : MonoBehaviour {
 		}
 		CurrentState = Enemy_States.Patrolling;
 	}
+
 }

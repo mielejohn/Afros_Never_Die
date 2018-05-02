@@ -13,7 +13,7 @@ public class Room_Controller : MonoBehaviour {
 	public PlayerController PM;
 
 	[Header("Room Discovery")]
-	public GameObject Room_cover;
+	public GameObject[] roomCovers;
 	public Room_State RS = Room_State.Undiscovered;
 
 	// Use this for initialization
@@ -22,36 +22,46 @@ public class Room_Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Enemies.Count == 0 && PM != null) {
+			PM.stealth_State = Stealth_States.Hidden;
+		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
+	void OnTriggerEnter2D (Collider2D other)
+	{
 		//Debug.Log ("Something just Collided");
 		if (other.tag == "Player") {
 			Player = other.gameObject;
 			PM = Player.GetComponent<PlayerController> ();
 			PM.getEnemies (Enemies);
+			PM.RC = this;
 		}
 
-		/*if (Room_Discovered == false && other.tag == "Player") {
+		if (RS == Room_State.Undiscovered && other.tag == "Player") {
 			//Debug.Log ("room Discovered");
-			Room_Discovered = true;
-			Room_cover.SetActive (false);
-		}*/
+			RS = Room_State.Discovered;
+			for (int i = 0; i < roomCovers.Length; i++) {
+				roomCovers [i].SetActive (false);
+			}
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Player") {
 			PM.RemoveEnemies ();
+			PM.stealth_State = Stealth_States.Hidden;
 			StartCoroutine(ResetRoom ());
 		}
 	}
 
-	public void RoomAlert(){
+	public void RoomAlert ()
+	{
 		RS = Room_State.Alerted;
 		for (int i = 0; i < Enemies.Count; i++) {
 			//Enemies [i].GetComponent<Basic_Enemy> ().PlayerofInterest = Player;
-			Enemies [i].GetComponent<Basic_Enemy> ().DetectedPlayer ();
+			if (Enemies [i] != null) {
+				Enemies [i].GetComponent<Basic_Enemy> ().DetectedPlayer ();
+			}
 		}
 	}
 
@@ -78,6 +88,8 @@ public class Room_Controller : MonoBehaviour {
 	}
 
 	public void RemoveEnemy(GameObject DeadEnemy){
+		Debug.Log("Removing enemy: " + DeadEnemy);
 		Enemies.Remove (DeadEnemy);
 	}
+
 }

@@ -100,10 +100,10 @@ public class Camera_Script : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player" && Player.player_state == Player_States.Walking) {
-			//Debug.Log ("Colliding with a walking player");
+			Debug.Log ("Colliding with a walking player");
 			DetectedPlayer ();
 		} if (other.tag == "Player" && Player.player_state == Player_States.Crouching) {
-			//Debug.Log ("Colliding with a crouching player");
+			Debug.Log ("Colliding with a crouching player");
 			detectingPlayer = true;
 			StartCoroutine (Detecting ());
 		}

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8-way_Movement_Test_project
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8-way_Movement_Test_project", "Assembly-CSharp-Editor.csproj", "{4510E205-FDDD-9E38-978F-4E338399B6BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8-way_Movement_Test_project", "Assembly-CSharp-Editor-firstpass.csproj", "{9311A629-A182-C344-D3C1-E6FD8085A8EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{4510E205-FDDD-9E38-978F-4E338399B6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4510E205-FDDD-9E38-978F-4E338399B6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4510E205-FDDD-9E38-978F-4E338399B6BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9311A629-A182-C344-D3C1-E6FD8085A8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9311A629-A182-C344-D3C1-E6FD8085A8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9311A629-A182-C344-D3C1-E6FD8085A8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9311A629-A182-C344-D3C1-E6FD8085A8EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

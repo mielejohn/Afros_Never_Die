@@ -8,6 +8,13 @@ TagManager:
   - Enemy
   - GameManager
   - Lethal_Bullet
+  - AmmoText
+  - AmmoReserveText
+  - HealthSlider
+  - Enemy_Bullet
+  - Walls
+  - RoomCollider
+  - RoomItem
   layers:
   - Default
   - TransparentFX
